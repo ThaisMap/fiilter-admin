@@ -1,27 +1,13 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import Dashboard from '../components/Dashboard';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const Home: NextPage = () => {
   return (
     <Container maxWidth='lg'>
-      <Box
-        sx={{
-          my: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Typography variant='h4' component='h1' gutterBottom>
-          MUI v5 + Next.js with TypeScript Fiilter
-        </Typography>
-        <Box maxWidth='sm'>
-          <Button variant='contained'>A button</Button>
-        </Box>
-      </Box>
+      <CssBaseline />
+      <Dashboard />
     </Container>
   );
 };
