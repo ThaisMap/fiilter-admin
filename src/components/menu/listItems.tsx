@@ -10,50 +10,44 @@ import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import BalanceIcon from '@mui/icons-material/Balance';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import Link from 'next/link';
+
+interface itemProps {
+  linkTo?: string;
+  icon?: React.ReactElement;
+  text: string;
+}
+
+const Item = ({ linkTo = '/', icon, text }: itemProps) => {
+  return (
+    <div>
+      <Link href={linkTo} passHref>
+        <ListItem button>
+          <ListItemIcon>{icon}</ListItemIcon>
+          <ListItemText primary={text} />
+        </ListItem>
+      </Link>
+    </div>
+  );
+};
 
 export const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary='Dashboard' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AccountBalanceWalletIcon />
-      </ListItemIcon>
-      <ListItemText primary='Carteira' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PriceCheckIcon />
-      </ListItemIcon>
-      <ListItemText primary='Dividendos' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BalanceIcon />
-      </ListItemIcon>
-      <ListItemText primary='Rebalanceamento' />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <FilterAltIcon />
-      </ListItemIcon>
-      <ListItemText primary='Fiilter' />
-    </ListItem>
+    <Item linkTo='/' icon={<DashboardIcon />} text='Dashboard' />
+    <Item
+      linkTo='/carteira'
+      icon={<AccountBalanceWalletIcon />}
+      text='Carteira'
+    />
+    <Item linkTo='/' icon={<PriceCheckIcon />} text='Dividendos' />
+    <Item linkTo='/' icon={<BalanceIcon />} text='Rebalanceamento' />
+    <Item linkTo='/' icon={<FilterAltIcon />} text='Fiilter' />
   </div>
 );
 
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Ações</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AddBusinessIcon />
-      </ListItemIcon>
-      <ListItemText primary='Incluir transação' />
-    </ListItem>
+    <Item linkTo='/' icon={<AddBusinessIcon />} text='Incluir transação' />
   </div>
 );
