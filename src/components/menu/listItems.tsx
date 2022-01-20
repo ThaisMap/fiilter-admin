@@ -10,6 +10,8 @@ import PriceCheckIcon from '@mui/icons-material/PriceCheck';
 import BalanceIcon from '@mui/icons-material/Balance';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 import Link from 'next/link';
 
 interface itemProps {
@@ -39,6 +41,7 @@ export const mainListItems = (
       icon={<AccountBalanceWalletIcon />}
       text='Carteira'
     />
+    <Item linkTo='/operacoes' icon={<ShoppingCartIcon />} text='Operações' />
     <Item linkTo='/' icon={<PriceCheckIcon />} text='Dividendos' />
     <Item linkTo='/' icon={<BalanceIcon />} text='Rebalanceamento' />
     <Item linkTo='/' icon={<FilterAltIcon />} text='Fiilter' />
@@ -48,6 +51,6 @@ export const mainListItems = (
 export const secondaryListItems = (
   <div>
     <ListSubheader inset>Ações</ListSubheader>
-    <Item linkTo='/' icon={<AddBusinessIcon />} text='Incluir transação' />
+    <Item linkTo='#' icon={<AddBusinessIcon />} text='Incluir transação' />
   </div>
 );
