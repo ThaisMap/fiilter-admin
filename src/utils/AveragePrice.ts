@@ -1,9 +1,9 @@
-import { ItemCarteira } from "../entities/itemCarteira"
-import { Transacao } from "../entities/transacao"
+import { WalletItem } from "../entities/walletItem"
+import { Operation } from "../entities/operation"
 
 function calculateNewAvgPrice(
-  item: ItemCarteira,
-  transaction: Transacao
+  item: WalletItem,
+  transaction: Operation
 ): number {
   const qty = item.amount + transaction.amount
   const totalValue =

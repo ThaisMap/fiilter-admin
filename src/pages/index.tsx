@@ -1,8 +1,8 @@
 import { Typography, Container, Grid, Paper, Link } from '@mui/material';
 import type { NextPage } from 'next';
-import Orders from '../components/Orders';
-import ThisMonth from '../components/ThisMonth';
-import Wallet from '../components/Wallet';
+import Orders from '../components/dashboardTiles/Orders';
+import ThisMonth from '../components/dashboardTiles/ThisMonth';
+import Wallet from '../components/dashboardTiles/Wallet';
 
 function Copyright(props: any) {
   return (
@@ -21,7 +21,7 @@ function Copyright(props: any) {
   );
 }
 
-const Home: NextPage = () => {
+const Dashboard: NextPage = () => {
   return (
     <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
@@ -58,4 +58,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Dashboard;

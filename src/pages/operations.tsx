@@ -9,7 +9,7 @@ import {
 } from "@mui/x-data-grid"
 import AddIcon from "@mui/icons-material/Add"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
-import { toggleAddTransactionModal } from "../redux/slices/layout"
+import { toggleNewOperationModal } from "../redux/slices/layout"
 
 export const columns: GridColDef[] = [
   {
@@ -58,11 +58,11 @@ export const columns: GridColDef[] = [
   }
 ]
 
-const Operacoes: NextPage = () => {
-  const rows = useAppSelector(state => state.carteira.transacoes)
+const OperationsPage: NextPage = () => {
+  const rows = useAppSelector(state => state.carteira.operations)
   const dispatch = useAppDispatch()
   const handleNewTransaction = () => {
-    dispatch(toggleAddTransactionModal())
+    dispatch(toggleNewOperationModal())
   }
 
   return (
@@ -88,4 +88,4 @@ const Operacoes: NextPage = () => {
   )
 }
 
-export default Operacoes
+export default OperationsPage

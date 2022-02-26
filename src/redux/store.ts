@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import carteiraReducer from "./slices/carteira"
+import carteiraReducer from "./slices/wallet"
 import layoutReducer from "./slices/layout"
 
 export const store = configureStore({

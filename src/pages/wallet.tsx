@@ -10,10 +10,10 @@ import {
 import type { NextPage } from 'next';
 import React from 'react';
 import Title from '../components/Title';
-import { dadosCarteira } from '../fakeData/carteira';
+import { useAppSelector } from '../redux/hooks';
 
-const Carteira: NextPage = () => {
-  const rows = dadosCarteira;
+const WalletPage: NextPage = () => {
+  const rows = useAppSelector(state => state.carteira.wallet)
   return (
     <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
       <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
@@ -41,4 +41,4 @@ const Carteira: NextPage = () => {
   );
 };
 
-export default Carteira;
+export default WalletPage;

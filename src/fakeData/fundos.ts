@@ -1,29 +1,29 @@
-import { Fundo } from '../entities/fundo';
+import { Fund } from "../entities/fund"
 
-const fundos: Fundo[] = [
-  new Fundo(
-    'BTAL',
-    'BTAL11',
-    'Btg Pactual Agro Logística',
-    'Agronegócio',
-    'Tijolo'
+const fundos: Fund[] = [
+  new Fund(
+    "BTAL",
+    "BTAL11",
+    "Btg Pactual Agro Logística",
+    "Agronegócio",
+    "Tijolo"
   ),
-  new Fundo('CPFF', 'CPFF11', 'Capitânia REIT FOF', 'Fundo de Fundos', 'FOF'),
-  new Fundo(
-    'IRDM',
-    'IRDM11',
-    'Iridium Recebíveis Imobiliários',
-    'Recebíveis Imobiliários',
-    'Papel'
+  new Fund("CPFF", "CPFF11", "Capitânia REIT FOF", "Fundo de Fundos", "FOF"),
+  new Fund(
+    "IRDM",
+    "IRDM11",
+    "Iridium Recebíveis Imobiliários",
+    "Recebíveis Imobiliários",
+    "Papel"
   ),
-  new Fundo(
-    'JSRE',
-    'JSRE11',
-    'JS Real Estate Multigestão',
-    'Lajes Comerciais',
-    'Tijolo'
+  new Fund(
+    "JSRE",
+    "JSRE11",
+    "JS Real Estate Multigestão",
+    "Lajes Comerciais",
+    "Tijolo"
   ),
-  new Fundo('XPSF', 'XPSF11', 'XP Selection', 'Fundo de Fundos', 'FOF'),
-];
+  new Fund("XPSF", "XPSF11", "XP Selection", "Fundo de Fundos", "FOF")
+]
 
-export { fundos };
+export { fundos }

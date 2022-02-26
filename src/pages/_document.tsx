@@ -1,6 +1,4 @@
-const APP_NAME = 'FIIlter React';
-const APP_DESCRIPTION =
-  'Um gerenciador para Fundos de Investimento Imobiliario';
+
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';

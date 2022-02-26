@@ -1,10 +1,10 @@
 import { Box, Modal, Typography } from '@mui/material'
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
-import { toggleAddTransactionModal } from '../redux/slices/layout'
+import { toggleNewOperationModal } from '../redux/slices/layout'
 
 const NewTransactionModal = () => {
-  const open = useAppSelector(state => state.layout.addTransactionModalOpen)
+  const open = useAppSelector(state => state.layout.isnewOperationModalOpen)
   const style = {
     position: 'absolute' as 'absolute',
     top: '50%',
@@ -20,7 +20,7 @@ const NewTransactionModal = () => {
   const dispatch = useAppDispatch()
 
   const handleClose = () => {
-    dispatch(toggleAddTransactionModal())
+    dispatch(toggleNewOperationModal())
   }
 
   return (

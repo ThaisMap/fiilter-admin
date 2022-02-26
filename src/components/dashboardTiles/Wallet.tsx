@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from '@mui/material';
-import Title from './Title';
-import Info from './Info';
+import Title from '../Title';
+import Info from '../Info';
 
 export default function Wallet() {
   return (

@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 export interface LayoutState {
-  addTransactionModalOpen: boolean
+  isnewOperationModalOpen: boolean
 }
 
 const initialState: LayoutState = {
-  addTransactionModalOpen: false
+  isnewOperationModalOpen: false
 }
 
 export const layoutSlice = createSlice({
   name: "layout",
   initialState,
   reducers: {
-    toggleAddTransactionModal: state => {
-      state.addTransactionModalOpen = !state.addTransactionModalOpen
+    toggleNewOperationModal: state => {
+      state.isnewOperationModalOpen = !state.isnewOperationModalOpen
     }
   }
 })
 
-export const { toggleAddTransactionModal } = layoutSlice.actions
+export const { toggleNewOperationModal } = layoutSlice.actions
 
 export default layoutSlice.reducer

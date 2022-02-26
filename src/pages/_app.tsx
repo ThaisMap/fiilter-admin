@@ -6,7 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
-import APP_NAME from '../utils/AppName';
+import { APP_NAME } from '../utils/constants';
 import AdminBase from '../components/templates/AdminBase';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store';
