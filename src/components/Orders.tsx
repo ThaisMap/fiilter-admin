@@ -2,13 +2,15 @@ import { Box, Link } from '@mui/material';
 import NextLink from 'next/link';
 import { DataGrid } from '@mui/x-data-grid';
 import React from 'react';
-import { compras } from '../fakeData/compras';
 import { columns } from '../pages/operacoes';
-import { dynamicSort, sortByDate } from '../utils/sortBy';
+import { dynamicSort } from '../utils/sortBy';
 import Title from './Title';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/store';
 
 const Orders = () => {
-  let rows = compras.slice().sort(dynamicSort('-date')).slice(0, 5);
+  const transacoes = useSelector((state: RootState) => state.carteira.transacoes)
+  let rows = transacoes.slice().sort(dynamicSort('-date')).slice(0, 5);
 
   return (
     <Box sx={{ flex: 1 }}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import Menu from '../menu/Menu';
+import NewTransactionModal from '../NewTransactionModal';
 
 const AdminBase: React.FC = ({ children }) => {
   return (
@@ -19,6 +20,7 @@ const AdminBase: React.FC = ({ children }) => {
         }}>
         {children}
       </Box>
+      <NewTransactionModal />
     </Box>
   );
 };
