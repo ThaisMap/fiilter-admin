@@ -37,11 +37,11 @@ export const mainListItems = (
   <div>
     <Item linkTo='/' icon={<DashboardIcon />} text='Dashboard' />
     <Item
-      linkTo='/carteira'
+      linkTo='/wallet'
       icon={<AccountBalanceWalletIcon />}
       text='Carteira'
     />
-    <Item linkTo='/operacoes' icon={<ShoppingCartIcon />} text='Operações' />
+    <Item linkTo='/operations' icon={<ShoppingCartIcon />} text='Operações' />
     <Item linkTo='/' icon={<PriceCheckIcon />} text='Dividendos' />
     <Item linkTo='/' icon={<BalanceIcon />} text='Rebalanceamento' />
     <Item linkTo='/' icon={<FilterAltIcon />} text='Fiilter' />
