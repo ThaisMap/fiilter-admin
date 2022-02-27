@@ -1,35 +1,239 @@
 import { Operation } from "../entities/operation"
+import { OperationTypes } from "../enums/operationTypes"
 
 const compras: Operation[] = [
-  new Operation("1", "IRDM11", 3, 123.2, new Date(2019, 8, 23)),
-  new Operation("2", "XPML11", 3, 110.6, new Date(2019, 9, 26)),
-  new Operation("3", "IRDM11", 1, 100.61, new Date(2019, 11, 18)),
-  new Operation("4", "IRDM11", 2, 101.35, new Date(2020, 2, 20)),
-  new Operation("5", "IRDM11", 1, 101.8, new Date(2020, 5, 7)),
-  new Operation("6", "IRDM11", 1, 123.35, new Date(2020, 10, 2)),
-  new Operation("7", "IRDM11", 3, 98.24, new Date(2020, 12, 3)),
-  new Operation("8", "IRDM11", 3, 102.69, new Date(2021, 3, 23)),
-  new Operation("9", "IRDM11", 1, 102.69, new Date(2021, 4, 1)),
-  new Operation("10", "XPML11", 2, 99.92, new Date(2021, 6, 25)),
-  new Operation("11", "CPFF11", 4, 81.71, new Date(2021, 7, 26)),
-  new Operation("12", "CPFF11", 3, 81.6, new Date(2021, 7, 26)),
-  new Operation("13", "XPML11", 2, 102.3, new Date(2021, 7, 27)),
-  new Operation("14", "IRDM11", 3, 101.41, new Date(2021, 8, 4)),
-  new Operation("15", "IRDM11", 1, 101.41, new Date(2021, 8, 12)),
-  new Operation("16", "CPFF11", 1, 80.0, new Date(2021, 8, 17)),
-  new Operation("17", "CPFF11", 5, 80.1, new Date(2021, 9, 9)),
-  new Operation("18", "XPML11", 1, 101.45, new Date(2021, 9, 16)),
-  new Operation("19", "BTAL11", 3, 97.71, new Date(2021, 10, 14)),
-  new Operation("20", "BTAL11", 2, 95.97, new Date(2021, 11, 5)),
-  new Operation("21", "XPML11", 1, 97.71, new Date(2021, 11, 5)),
-  new Operation("22", "BTAL11", 5, 93.25, new Date(2021, 11, 12)),
-  new Operation("23", "IRDM11", 3, 99.75, new Date(2021, 12, 6)),
-  new Operation("24", "CPFF11", 7, 71.04, new Date(2021, 12, 6)),
-  new Operation("25", "XPML11", 3, 91.62, new Date(2021, 12, 15)),
-  new Operation("26", "CPFF11", 2, 69.9, new Date(2021, 12, 21)),
-  new Operation("27", "CPFF11", 6, 69.9, new Date(2022, 1, 7)),
-  new Operation("28", "XPML11", 2, 92.79, new Date(2022, 1, 13)),
-  new Operation("29", "XPML11", 1, 91.2, new Date(2022, 1, 13))
+  new Operation({
+    id: "1",
+    fund: "IRDM11",
+    amount: 3,
+    price: 123.2,
+    date: new Date(2019, 8, 23),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "2",
+    fund: "XPML11",
+    amount: 3,
+    price: 110.6,
+    date: new Date(2019, 9, 26),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "3",
+    fund: "IRDM11",
+    amount: 1,
+    price: 100.61,
+    date: new Date(2019, 11, 18),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "4",
+    fund: "IRDM11",
+    amount: 2,
+    price: 101.35,
+    date: new Date(2020, 2, 20),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "5",
+    fund: "IRDM11",
+    amount: 1,
+    price: 101.8,
+    date: new Date(2020, 5, 7),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "6",
+    fund: "IRDM11",
+    amount: 1,
+    price: 123.35,
+    date: new Date(2020, 10, 2),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "7",
+    fund: "IRDM11",
+    amount: 3,
+    price: 98.24,
+    date: new Date(2020, 12, 3),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "8",
+    fund: "IRDM11",
+    amount: 3,
+    price: 102.69,
+    date: new Date(2021, 3, 23),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "9",
+    fund: "IRDM11",
+    amount: 1,
+    price: 102.69,
+    date: new Date(2021, 4, 1),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "10",
+    fund: "XPML11",
+    amount: 2,
+    price: 99.92,
+    date: new Date(2021, 6, 25),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "11",
+    fund: "CPFF11",
+    amount: 4,
+    price: 81.71,
+    date: new Date(2021, 7, 26),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "12",
+    fund: "CPFF11",
+    amount: 3,
+    price: 81.6,
+    date: new Date(2021, 7, 26),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "13",
+    fund: "XPML11",
+    amount: 2,
+    price: 102.3,
+    date: new Date(2021, 7, 27),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "14",
+    fund: "IRDM11",
+    amount: 3,
+    price: 101.41,
+    date: new Date(2021, 8, 4),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "15",
+    fund: "IRDM11",
+    amount: 1,
+    price: 101.41,
+    date: new Date(2021, 8, 12),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "16",
+    fund: "CPFF11",
+    amount: 1,
+    price: 80.0,
+    date: new Date(2021, 8, 17),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "17",
+    fund: "CPFF11",
+    amount: 5,
+    price: 80.1,
+    date: new Date(2021, 9, 9),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "18",
+    fund: "XPML11",
+    amount: 1,
+    price: 101.45,
+    date: new Date(2021, 9, 16),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "19",
+    fund: "BTAL11",
+    amount: 3,
+    price: 97.71,
+    date: new Date(2021, 10, 14),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "20",
+    fund: "BTAL11",
+    amount: 2,
+    price: 95.97,
+    date: new Date(2021, 11, 5),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "21",
+    fund: "XPML11",
+    amount: 1,
+    price: 97.71,
+    date: new Date(2021, 11, 5),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "22",
+    fund: "BTAL11",
+    amount: 5,
+    price: 93.25,
+    date: new Date(2021, 11, 12),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "23",
+    fund: "IRDM11",
+    amount: 3,
+    price: 99.75,
+    date: new Date(2021, 12, 6),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "24",
+    fund: "CPFF11",
+    amount: 7,
+    price: 71.04,
+    date: new Date(2021, 12, 6),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "25",
+    fund: "XPML11",
+    amount: 3,
+    price: 91.62,
+    date: new Date(2021, 12, 15),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "26",
+    fund: "CPFF11",
+    amount: 2,
+    price: 69.9,
+    date: new Date(2021, 12, 21),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "27",
+    fund: "CPFF11",
+    amount: 6,
+    price: 69.9,
+    date: new Date(2022, 1, 7),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "28",
+    fund: "XPML11",
+    amount: 2,
+    price: 92.79,
+    date: new Date(2022, 1, 13),
+    type: OperationTypes.buy
+  }),
+  new Operation({
+    id: "29",
+    fund: "XPML11",
+    amount: 1,
+    price: 91.2,
+    date: new Date(2022, 1, 13),
+    type: OperationTypes.buy
+  })
 ]
 
 export { compras }

@@ -17,19 +17,12 @@ export class Operation implements IOperation {
   date: Date
   type: OperationTypes
 
-  constructor(
-    id: string,
-    fund: string,
-    amount: number,
-    price: number,
-    date: Date,
-    type: OperationTypes = OperationTypes.buy
-  ) {
-    this.id = id
-    this.fund = fund
-    this.amount = amount
-    this.price = price
-    this.date = date
-    this.type = type
+  constructor(operation: IOperation) {
+    this.id = operation.id
+    this.fund = operation.fund
+    this.amount = operation.amount
+    this.price = operation.price
+    this.date = operation.date
+    this.type = operation.type
   }
 }

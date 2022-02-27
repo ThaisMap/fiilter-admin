@@ -11,10 +11,10 @@ export class WalletItem implements IWalletItem {
   amount: number
   avgPrice: number
 
-  constructor(id: string, fund: string, amount: number, avgPrice: number) {
-    this.id = id
-    this.fund = fund
-    this.amount = amount
-    this.avgPrice = avgPrice
+  constructor(item: IWalletItem) {
+    this.id = item.id
+    this.fund = item.fund
+    this.amount = item.amount
+    this.avgPrice = item.avgPrice
   }
 }

@@ -5,40 +5,40 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
-} from '@mui/material';
-import type { NextPage } from 'next';
-import React from 'react';
-import Title from '../components/Title';
-import { useAppSelector } from '../redux/hooks';
+  TableRow
+} from "@mui/material"
+import type { NextPage } from "next"
+import React from "react"
+import Title from "../components/Title"
+import { useAppSelector } from "../redux/hooks"
 
-const WalletPage: NextPage = () => {
+const Wallet: NextPage = () => {
   const rows = useAppSelector(state => state.carteira.wallet)
   return (
-    <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-      <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
         <Title>Carteira</Title>
-        <Table size='small'>
+        <Table size="small">
           <TableHead>
             <TableRow>
               <TableCell>Fundo</TableCell>
               <TableCell>Cotas</TableCell>
-              <TableCell align='right'>Preço médio</TableCell>
+              <TableCell align="right">Preço médio</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {rows.map(row => (
               <TableRow key={row.id}>
                 <TableCell>{row.fund}</TableCell>
                 <TableCell>{row.amount}</TableCell>
-                <TableCell align='right'>{`R$ ${row.avgPrice}`}</TableCell>
+                <TableCell align="right">{`R$ ${row.avgPrice}`}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Paper>
     </Container>
-  );
-};
+  )
+}
 
-export default WalletPage;
+export default Wallet

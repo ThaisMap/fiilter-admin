@@ -8,8 +8,8 @@ function calculateNewAvgPrice(
   const qty = item.amount + transaction.amount
   const totalValue =
     item.avgPrice * item.amount + transaction.amount * transaction.price
-  const newAverage = totalValue / qty
-  return newAverage
+
+  return totalValue / qty
 }
 
 export { calculateNewAvgPrice }

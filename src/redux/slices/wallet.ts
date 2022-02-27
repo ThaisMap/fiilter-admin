@@ -36,7 +36,12 @@ export const walletSlice = createSlice({
         })
       } else {
         state.wallet.push(
-          new WalletItem(nanoid(), buy.fund, buy.amount, buy.price)
+          new WalletItem({
+            id: nanoid(),
+            fund: buy.fund,
+            amount: buy.amount,
+            avgPrice: buy.price
+          })
         )
       }
     },

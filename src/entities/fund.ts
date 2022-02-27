@@ -19,23 +19,14 @@ export class Fund implements IFund {
   ticker: string
   tipo: string
 
-  constructor(
-    id: string,
-    ticker: string,
-    nomeFundo: string,
-    setor: string,
-    tipo: string,
-    cnpjAdministrador: string = "cnpjAdministrador",
-    cnpjFundo: string = "cnpjFundo",
-    nomeAdministrador: string = "nomeAdministrador"
-  ) {
-    this.id = id
-    this.nomeFundo = nomeFundo
-    this.setor = setor
-    this.ticker = ticker
-    this.tipo = tipo
-    this.cnpjAdministrador = cnpjAdministrador
-    this.cnpjFundo = cnpjFundo
-    this.nomeAdministrador = nomeAdministrador
+  constructor(fund: IFund) {
+    this.id = fund.id
+    this.nomeFundo = fund.nomeFundo
+    this.setor = fund.setor
+    this.ticker = fund.ticker
+    this.tipo = fund.tipo
+    this.cnpjAdministrador = fund.cnpjAdministrador || "cnpjAdministrador"
+    this.cnpjFundo = fund.cnpjFundo || "cnpjFundo"
+    this.nomeAdministrador = fund.nomeAdministrador || "nomeAdministrador"
   }
 }

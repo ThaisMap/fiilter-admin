@@ -52,13 +52,12 @@ export const columns: GridColDef[] = [
     headerAlign: "center",
     valueFormatter: (params: GridValueFormatterParams) => {
       const valor: Date = params.value as Date
-      const valueFormatted = valor.toLocaleDateString()
-      return valueFormatted
+      return valor.toLocaleDateString()
     }
   }
 ]
 
-const OperationsPage: NextPage = () => {
+const Operations: NextPage = () => {
   const rows = useAppSelector(state => state.carteira.operations)
   const dispatch = useAppDispatch()
   const handleNewTransaction = () => {
@@ -88,4 +87,4 @@ const OperationsPage: NextPage = () => {
   )
 }
 
-export default OperationsPage
+export default Operations
