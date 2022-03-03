@@ -5,14 +5,14 @@ import ThisMonth from '../components/dashboardTiles/ThisMonth';
 import Wallet from '../components/dashboardTiles/Wallet';
 
 
-import { Configuration, V0alpha2Api, Session, Identity } from '@ory/client'
+import { Session, Identity } from '@ory/client'
 import { edgeConfig } from '@ory/integrations/next'
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useAppDispatch } from '../redux/hooks';
 import { setLogoutUrl } from '../redux/slices/auth';
+import ory from '../orySdk/sdk';
 
-const ory = new V0alpha2Api(new Configuration(edgeConfig))
 
 // Returns either the email or the username depending on the user's Identity Schema
 const getUserName = (identity: Identity) =>
