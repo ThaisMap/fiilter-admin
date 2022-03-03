@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import carteiraReducer from "./slices/wallet"
 import layoutReducer from "./slices/layout"
+import authReducer from "./slices/auth"
 
 export const store = configureStore({
   reducer: {
     carteira: carteiraReducer,
-    layout: layoutReducer
+    layout: layoutReducer,
+    auth: authReducer
   }
 })
 

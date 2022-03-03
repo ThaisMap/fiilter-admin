@@ -11,8 +11,9 @@ import BalanceIcon from "@mui/icons-material/Balance"
 import FilterAltIcon from "@mui/icons-material/FilterAlt"
 import AddBusinessIcon from "@mui/icons-material/AddBusiness"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+import LogoutIcon from '@mui/icons-material/Logout';
 import Link from "next/link"
-import { useAppDispatch } from "../../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../../redux/hooks"
 import { toggleNewOperationModal } from "../../redux/slices/layout"
 import { List } from "@mui/material"
 
@@ -53,7 +54,7 @@ export const MainList = () => (
 
 export const SecondaryList = () => {
   const dispatch = useAppDispatch()
-
+  const logoutUrl = useAppSelector(state => { return state.auth.logoutURL })
   const handleNewTransactionClick = () => {
     dispatch(toggleNewOperationModal())
   }
@@ -65,6 +66,11 @@ export const SecondaryList = () => {
         icon={<AddBusinessIcon />}
         text="Incluir transação"
         onClick={handleNewTransactionClick}
+      />
+      <Item
+        linkTo={logoutUrl}
+        icon={<LogoutIcon />}
+        text="Logout"
       />
     </List>
   )
