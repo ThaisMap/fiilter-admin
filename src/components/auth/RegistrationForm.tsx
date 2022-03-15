@@ -1,19 +1,19 @@
 import { Box, Button, TextField } from "@mui/material"
 import {
-  SelfServiceLoginFlow,
-  SubmitSelfServiceLoginFlowWithPasswordMethodBody as ValuesType,
+  SelfServiceRegistrationFlow,
+  SubmitSelfServiceRegistrationFlowWithPasswordMethodBody as ValuesType,
   UiNodeInputAttributes
 } from "@ory/client"
 import { isUiNodeInputAttributes } from "@ory/integrations/ui"
 import React, { useState } from "react"
 import { Messages } from "../ory"
 
-interface ILoginForm {
-  flow?: SelfServiceLoginFlow
+interface IRegistrationForm {
+  flow?: SelfServiceRegistrationFlow
   onSubmit: (values: ValuesType) => Promise<void>
 }
 
-const LoginForm = ({ flow, onSubmit }: ILoginForm) => {
+const RegistrationForm = ({ flow, onSubmit }: IRegistrationForm) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   // Compute the values
@@ -21,10 +21,10 @@ const LoginForm = ({ flow, onSubmit }: ILoginForm) => {
     csrf_token: "",
     method: "password",
     password: "",
-    password_identifier: ""
+    traits: { email: '' }
   }
 
-  const initializeValues = () => {
+  const initializeCrsf = () => {
     if (flow) {
       const { nodes } = flow?.ui
       const csrfNode = nodes.find(
@@ -41,11 +41,11 @@ const LoginForm = ({ flow, onSubmit }: ILoginForm) => {
   const handleSubmit = event => {
     event.preventDefault()
     event.stopPropagation()
-    initializeValues()
+    initializeCrsf()
     values = {
       ...values,
       password,
-      password_identifier: email
+      traits: { email }
     }
     onSubmit(values)
   }
@@ -91,4 +91,4 @@ const LoginForm = ({ flow, onSubmit }: ILoginForm) => {
     </Box>
   )
 }
-export default LoginForm
+export default RegistrationForm

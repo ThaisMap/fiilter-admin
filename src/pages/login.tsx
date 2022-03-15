@@ -38,6 +38,8 @@ const Login: NextPage = () => {
   const onLogout = createLogoutHandler([aal, refresh])
 
   useEffect(() => {
+    console.log('return to:', returnTo)
+
     // If the router is not ready yet, or we already have a flow, do nothing.
     if (!router.isReady || flow) {
       return
@@ -107,7 +109,6 @@ const Login: NextPage = () => {
     <Container maxWidth={'lg'}>
       <Head>
         <title>Sign in com Ory</title>
-        <meta name="description" content="NextJS + React + Vercel + Ory" />
       </Head>
       <div>
         <Title>
@@ -116,11 +117,8 @@ const Login: NextPage = () => {
         <LoginForm onSubmit={onSubmit} flow={flow} />
       </div>
       <>
-        <Link href="/ui/registration" passHref>
+        <Link href="/registration" passHref>
           <Button>Create account</Button>
-        </Link>
-        <Link href="/ui/recovery" passHref>
-          <Button>Recover your account</Button>
         </Link>
       </>
     </Container>
