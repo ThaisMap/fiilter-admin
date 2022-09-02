@@ -1,20 +1,23 @@
-import { Button, Container } from '@mui/material'
+import { Button, Container } from "@mui/material"
 import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody
-} from '@ory/kratos-client'
-import { AxiosError } from 'axios'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import ory from '../orySdk/sdk'
+} from "@ory/kratos-client"
+import { AxiosError } from "axios"
+import type { NextPage } from "next"
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import ory from "../orySdk/sdk"
 
-import { handleFlowError } from '../orySdk/errors'
-import Title from '../components/Title'
-import RegistrationForm from '../components/auth/RegistrationForm'
-import { SelfServiceRegistrationFlow, SubmitSelfServiceRegistrationFlowBody } from '@ory/client'
+import { handleFlowError } from "../orySdk/errors"
+import Title from "../components/Title"
+import RegistrationForm from "../components/auth/RegistrationForm"
+import {
+  SelfServiceRegistrationFlow,
+  SubmitSelfServiceRegistrationFlowBody
+} from "@ory/client"
 
 const Registration: NextPage = () => {
   const [flow, setFlow] = useState<SelfServiceRegistrationFlow>()
@@ -40,7 +43,7 @@ const Registration: NextPage = () => {
           // We received the flow - let's use its data and render the form!
           setFlow(data)
         })
-        .catch(handleFlowError(router, 'registration', setFlow))
+        .catch(handleFlowError(router, "registration", setFlow))
       return
     }
 
@@ -52,10 +55,8 @@ const Registration: NextPage = () => {
       .then(({ data }) => {
         setFlow(data)
       })
-      .catch(handleFlowError(router, 'registration', setFlow))
+      .catch(handleFlowError(router, "registration", setFlow))
   }, [flowId, router, router.isReady, returnTo, flow])
-
-  console.log('registration flow object ', flow)
 
   const onSubmit = (values: SubmitSelfServiceRegistrationFlowBody) =>
     router
@@ -69,12 +70,12 @@ const Registration: NextPage = () => {
             // If we ended up here, it means we are successfully signed up!
             //
             // You can do cool stuff here, like having access to the identity which just signed up:
-            console.log('This is the user session: ', data, data.identity)
+            // console.log('This is the user session: ', data, data.identity)
 
             // For now however we just want to redirect home!
-            return router.push(flow?.return_to || '/').then(() => { })
+            return router.push(flow?.return_to || "/").then(() => {})
           })
-          .catch(handleFlowError(router, 'registration', setFlow))
+          .catch(handleFlowError(router, "registration", setFlow))
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
             if (err.response?.status === 400) {
@@ -92,14 +93,12 @@ const Registration: NextPage = () => {
   }
 
   return (
-    <Container maxWidth={'lg'}>
+    <Container maxWidth={"lg"}>
       <Head>
         <title>Sign Up com Ory</title>
       </Head>
       <div>
-        <Title>
-          Cadastrar
-        </Title>
+        <Title>Cadastrar</Title>
         <RegistrationForm onSubmit={onSubmit} flow={flow} />
       </div>
       <>

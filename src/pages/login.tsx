@@ -1,21 +1,21 @@
-import { Button, Container } from '@mui/material'
+import { Button, Container } from "@mui/material"
 import {
   SelfServiceLoginFlow,
   SubmitSelfServiceLoginFlowBody
-} from '@ory/kratos-client'
-import { AxiosError } from 'axios'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { Flow } from '../components/ory/Flow'
-import { createLogoutHandler } from '../orySdk/hooks'
-import ory from '../orySdk/sdk'
+} from "@ory/kratos-client"
+import { AxiosError } from "axios"
+import type { NextPage } from "next"
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import { Flow } from "../components/ory/Flow"
+import { createLogoutHandler } from "../orySdk/hooks"
+import ory from "../orySdk/sdk"
 
-import { handleGetFlowError, handleFlowError } from '../orySdk/errors'
-import Title from '../components/Title'
-import LoginForm from '../components/auth/LoginForm'
+import { handleGetFlowError, handleFlowError } from "../orySdk/errors"
+import Title from "../components/Title"
+import LoginForm from "../components/auth/LoginForm"
 
 const Login: NextPage = () => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow>()
@@ -38,8 +38,6 @@ const Login: NextPage = () => {
   const onLogout = createLogoutHandler([aal, refresh])
 
   useEffect(() => {
-    console.log('return to:', returnTo)
-
     // If the router is not ready yet, or we already have a flow, do nothing.
     if (!router.isReady || flow) {
       return
@@ -52,7 +50,7 @@ const Login: NextPage = () => {
         .then(({ data }) => {
           setFlow(data as SelfServiceLoginFlow)
         })
-        .catch(handleGetFlowError(router, 'login', setFlow))
+        .catch(handleGetFlowError(router, "login", setFlow))
       return
     }
 
@@ -66,10 +64,8 @@ const Login: NextPage = () => {
       .then(({ data }) => {
         setFlow(data as SelfServiceLoginFlow)
       })
-      .catch(handleFlowError(router, 'login', setFlow))
+      .catch(handleFlowError(router, "login", setFlow))
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow])
-
-  console.log('flow object ', flow)
 
   const onSubmit = (values: SubmitSelfServiceLoginFlowBody) =>
     router
@@ -80,15 +76,15 @@ const Login: NextPage = () => {
         ory
           .submitSelfServiceLoginFlow(String(flow?.id), undefined, values)
           // We logged in successfully! Let's bring the user home.
-          .then((res) => {
+          .then(res => {
             if (flow?.return_to) {
               window.location.href = flow?.return_to
               return
             }
-            router.push('/')
+            router.push("/")
           })
-          .then(() => { })
-          .catch(handleFlowError(router, 'login', setFlow))
+          .then(() => {})
+          .catch(handleFlowError(router, "login", setFlow))
           .catch((err: AxiosError) => {
             // If the previous handler did not catch the error it's most likely a form validation error
             if (err.response?.status === 400) {
@@ -106,14 +102,12 @@ const Login: NextPage = () => {
   }
 
   return (
-    <Container maxWidth={'lg'}>
+    <Container maxWidth={"lg"}>
       <Head>
         <title>Sign in com Ory</title>
       </Head>
       <div>
-        <Title>
-          Entrar
-        </Title>
+        <Title>Entrar</Title>
         <LoginForm onSubmit={onSubmit} flow={flow} />
       </div>
       <>
